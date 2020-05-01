@@ -1,0 +1,98 @@
+<head>
+	<style>
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		.container{
+			font-size:2px;
+		}
+		.postCard{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			border: 25px solid black;
+			margin:100px 350px 350px;
+		}
+		.imagen{
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			justify-content: center;
+		}
+		.mensaje{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-right: 20px;
+			padding-left: 80px;
+		}
+		#lugar{
+			margin:0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+	<script type="text/babel">
+
+	const rootElement = document.getElementById('root');
+
+	const props1 = {
+
+		children: 'From: Deyanira Paola Mendoza Armas',
+		className: 'container1',  
+
+	};
+
+	const props2 = {
+
+		children: 'To: Araceli Guadalupe Cordero Olvera',
+		className: 'container2',  
+
+	};
+
+	const props3 = {
+
+		children: '¡Hola! espero que estes muy bien, te quiero. ¡No salgasde casa!',  
+
+	};
+
+	const Postcard = (props) => {
+	console.log(props);
+	return (
+			<div class="postCard">
+			<div class="imagen">
+				<img src="paris.jpg"/>
+				<h3 id="lugar">Tepeyahualco, Hgo.</h3>
+			</div>
+			<div class="mensaje">{props.children}</div>
+			</div>
+			)
+	};
+
+	Postcard.propTypes = {
+		array: PropTypes.string,
+	};
+
+
+	const elementJSX = (
+		<Postcard >
+			
+			<div {...props1}/>
+			<div {...props2}/>
+			<div {...props3}/>
+			
+		</Postcard>	
+	);
+
+	ReactDOM.render(elementJSX, rootElement);
+
+	</script>
+</body>
